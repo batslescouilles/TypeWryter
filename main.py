@@ -1,6 +1,6 @@
 import time
 import keyboard
-from waveshare_epd import epd4in2_V2
+from waveshare_epd import epd7in5_V2
 
 from TypeWryter import TypeWryter
 
@@ -9,7 +9,7 @@ from TypeWryter import TypeWryter
 type_wryter = TypeWryter()
 
 try:
-  type_wryter.epd = epd4in2_V2.EPD() 
+  type_wryter.epd = epd7in5_V2.EPD() 
   type_wryter.keyboard = keyboard
   type_wryter.ensure_sub_dirs()
   type_wryter.initialize()
