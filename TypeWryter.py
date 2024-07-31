@@ -60,7 +60,7 @@ class Menu:
         self.menu_items[self.selected_item]['action']()
 
     def display(self):
-        self.display_draw.rectangle((0, 0, 400, 300), fill=255)
+        self.display_draw.rectangle((0, 0, 800, 480), fill=255)
         y_position = 10
         for index, item in enumerate(self.menu_items):
             prefix = self.selected_item == index and "> " or "  "
