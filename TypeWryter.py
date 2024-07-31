@@ -315,7 +315,7 @@ class TypeWryter:
 
     def power_down(self):
         #run powerdown script
-        self.display_draw.rectangle((0, 0, 400, 300), fill=255)  # Clear display
+        self.display_draw.rectangle((0, 0, 800, 480), fill=255)  # Clear display
         self.display_draw.text((55, 150), "TypeWryter Powered Down.", font=self.font13, fill=0)
         self.partial_update_buffer()
         time.sleep(3)
@@ -467,10 +467,10 @@ class TypeWryter:
         self.display_updating = True
 
         # Clear the main display area -- also clears input line (270-300)
-        self.display_draw.rectangle((0, 0, 400, 300), fill=255)
+        self.display_draw.rectangle((0, 0, 800, 480), fill=255)
         
         # Display the previous lines
-        y_position = 280 - self.line_spacing  # leaves room for cursor input
+        y_position = 460 - self.line_spacing  # leaves room for cursor input
 
         #Make a temp array from previous_lines. And then reverse it and display.
         current_line=max(0,len(self.previous_lines)-self.lines_on_screen*self.scrollindex)
@@ -483,8 +483,8 @@ class TypeWryter:
 
         #Display Console Message
         if self.console_message != "":
-            self.display_draw.rectangle((180, 280, 400, 300), fill=255)
-            self.display_draw.text((150, 280), self.console_message, font=self.font13, fill=0)
+            self.display_draw.rectangle((180, 460, 800, 480), fill=255)
+            self.display_draw.text((150, 460), self.console_message, font=self.font13, fill=0)
             self.console_message = ""
         
         #generate display buffer for display
@@ -496,13 +496,13 @@ class TypeWryter:
 
     def update_input_area(self):
         cursor_index = self.cursor_position
-        self.display_draw.rectangle((0, 280, 400, 300), fill=255)  # Clear display
+        self.display_draw.rectangle((0, 460, 800, 480), fill=255)  # Clear display
         
         #add cursor
         temp_content = self.input_content[:cursor_index] + "|" + self.input_content[cursor_index:]
 
         #draw input line text
-        self.display_draw.text((0, 280), str(temp_content), font=self.font13, fill=0)
+        self.display_draw.text((0, 460), str(temp_content), font=self.font13, fill=0)
         
         #generate display buffer for input line
         self.updating_input_area = True
